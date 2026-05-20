@@ -1,0 +1,28 @@
+# Pesos del modelo (se descargan automáticamente al ejecutar)
+yolov8n.pt
+*.pt
+
+# Video generado (114 MB, excede límite de GitHub)
+salida_deteccion_personas_profesional.mp4
+*.mp4
+
+# Informe Word entregable (contiene datos personales del estudiante)
+LAB_18_ABRIL_*.docx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Capturas temporales del image-cache (si quedaron en raíz por error)
+# Se mantienen las renombradas en docs/img/

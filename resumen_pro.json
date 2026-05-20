@@ -1,0 +1,13 @@
+{
+  "frames_procesados": 2416,
+  "detecciones_totales": 4248,
+  "fps_promedio": 20.40181378311258,
+  "tiempo_inferencia_promedio_ms": 31.72641059602649,
+  "personas_promedio_por_frame": 1.7582781456953642,
+  "confianza_promedio": 0.828385952177626,
+  "entrada_total": 9,
+  "salida_total": 9,
+  "ids_unicos_tracking": 46,
+  "id_mayor_permanencia": 48,
+  "dwell_max_segundos": 82.49266549982376
+}
