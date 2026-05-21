@@ -1,6 +1,6 @@
 # Detección y Analítica de Personas en Tiempo Real con YOLOv8 + ByteTrack
 
-> **Mi investigación aplicada en visión por computadora.** Construí un pipeline que transforma un flujo de webcam en inteligencia operativa: detecto personas, asigno identidades persistentes, cuento cruces por línea virtual y produzco analítica espacial y temporal post-sesión.
+> Pipeline de visión por computadora que transforma un flujo de webcam en inteligencia operativa: detección de personas, identidades persistentes, conteo por línea virtual y analítica espacial y temporal post-sesión.
 
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLOv8-yellow)](https://github.com/ultralytics/ultralytics)
@@ -14,7 +14,7 @@
 
 ## 📌 Alcance del proyecto
 
-En este repositorio documento mi investigación práctica sobre el estado-del-arte en **detección de objetos en tiempo real**. Demuestro cómo una combinación de herramientas abiertas — **YOLOv8** de Ultralytics, el tracker **ByteTrack** y **OpenCV** — me permite habilitar capacidades antes reservadas a soluciones comerciales: identifico personas en flujo de cámara, les asigno identidad persistente entre frames, automatizo el conteo por geometría virtual y construyo mapas de comportamiento espacial — todo sobre hardware de consumo, sin GPU dedicada y con un peso de modelo de apenas 6 MB.
+Repositorio dedicado a explorar el estado-del-arte en **detección de objetos en tiempo real**. La combinación de herramientas abiertas — **YOLOv8** de Ultralytics, el tracker **ByteTrack** y **OpenCV** — habilita capacidades antes reservadas a soluciones comerciales: identificación de personas en flujo de cámara, asignación de identidad persistente entre frames, conteo automatizado por geometría virtual y construcción de mapas de comportamiento espacial — sobre hardware de consumo, sin GPU dedicada y con un peso de modelo de apenas 6 MB.
 
 ### ¿Qué resuelven estas herramientas?
 
@@ -29,20 +29,20 @@ En este repositorio documento mi investigación práctica sobre el estado-del-ar
 
 ### Niveles de implementación
 
-| Nivel | Lo que implemento |
+| Nivel | Capacidades |
 |---|---|
-| **Notebook básico** | Detecto la clase `person` y registro FPS, latencia de inferencia, cantidad por frame y confianza promedio en un CSV |
-| **Notebook profesional** | Extiendo el anterior con **tracking persistente vía ByteTrack**, conteo bidireccional por línea virtual, grabación de video anotado en MP4 y un sistema de alertas configurables con cooldown |
-| **Bloque 14 (mi aporte de investigación)** | Diseño un módulo de re-inferencia post-sesión sobre el MP4 generado para construir un **heatmap espacial de zonas transitadas** y calcular el **dwell-time real por identificador único** — métricas estándar en analítica de retail y movilidad humana |
+| **Notebook básico** | Detección de clase `person` + métricas operativas (FPS, latencia, cantidad por frame, confianza) con exportación a CSV |
+| **Notebook profesional** | Lo anterior + **tracking persistente con ByteTrack**, conteo bidireccional por línea virtual, grabación de video anotado en MP4 y sistema de alertas configurables con cooldown |
+| **Bloque 14 — aporte propio** | Módulo de re-inferencia post-sesión sobre el MP4 generado que construye un **heatmap espacial de zonas transitadas** y calcula el **dwell-time real por identificador único** — métricas estándar en analítica de retail y movilidad humana |
 
-Desarrollo este trabajo en el marco del curso **Bases de Datos II** de la **Universidad Autónoma de Occidente (UAO)** como práctica técnica que pienso trasladar a mi proyecto integrador **SICTL — Sistema de Identificación y Clasificación Taxonómica de Lepidópteros**, donde los mismos principios de detección, tracking persistente y registro a base de datos no relacional (MongoDB) serán el núcleo del sistema final.
+Trabajo realizado en el marco del curso **Bases de Datos II** de la **Universidad Autónoma de Occidente (UAO)** como práctica técnica trasladable al proyecto integrador **SICTL — Sistema de Identificación y Clasificación Taxonómica de Lepidópteros**, donde los mismos principios de detección, tracking persistente y registro en base de datos no relacional (MongoDB) serán el núcleo del sistema final.
 
-### Hallazgos clave de mi investigación
+### Hallazgos clave
 
-- Confirmo que **YOLOv8n sostiene 20 FPS sobre CPU Apple Silicon** sin necesidad de GPU dedicada ni Neural Engine, lo que abre la puerta a despliegues edge sobre dispositivos de consumo.
-- Identifico que **filtrar la clase de forma nativa con `model.track(classes=[0])` mejora el rendimiento un +68%** frente al flujo de inferencia genérico, al evitar el NMS sobre clases que voy a descartar.
-- Verifico que **ByteTrack mantiene identidades persistentes con re-asociación robusta**: en mi sesión de prueba registré 46 identificadores únicos a lo largo de 2 416 frames con permanencia individual de hasta 82 segundos.
-- Observo que **la latencia escala linealmente con la densidad de la escena**: de 30 ms con 1-2 personas a 80 ms con 5-8 personas, comportamiento esperado en arquitecturas anchor-free.
+- **YOLOv8n sostiene 20 FPS sobre CPU Apple Silicon** sin GPU dedicada ni Neural Engine, lo que abre la puerta a despliegues edge sobre dispositivos de consumo.
+- Filtrar la clase de forma nativa con `model.track(classes=[0])` mejoró el rendimiento un **+68%** frente al flujo de inferencia genérico, al evitar el NMS sobre clases descartadas.
+- ByteTrack mantuvo identidades persistentes con re-asociación robusta: 46 IDs únicos a lo largo de 2 416 frames, con permanencia individual de hasta 82 segundos.
+- La latencia escala linealmente con la densidad de la escena: 30 ms con 1-2 personas, 80 ms con 5-8, comportamiento esperado en arquitecturas anchor-free.
 
 ---
 
@@ -155,7 +155,7 @@ Sesión real de 2 416 frames (~2 min) ejecutada en MacBook Air con chip Apple M5
 └── docs/img/                                ← capturas del README
 ```
 
-> El video `salida_deteccion_personas_profesional.mp4` (114 MB) lo dejo fuera del repo porque excede el límite de GitHub por archivo (100 MB). Lo regenero ejecutando el notebook profesional.
+> El video `salida_deteccion_personas_profesional.mp4` (114 MB) queda fuera del repo por exceder el límite de GitHub por archivo (100 MB). Se regenera ejecutando el notebook profesional.
 
 ---
 
@@ -212,7 +212,7 @@ export STUDENT_CODE="XXXXXXX"   # opcional: código del autor para la portada
 
 ## 🔬 Bloque 14 — Mejora propia (post-procesamiento analítico)
 
-El profesor entregó únicamente los notebooks base/profesional. Como aporte propio diseñé un módulo de **analítica post-sesión** que opera sobre el archivo MP4 generado por el cuaderno profesional: re-inferencio con `model.track(persist=True)` para obtener centroides y trayectorias persistentes. Los resultados los materialicé en dos visualizaciones complementarias:
+El profesor entregó únicamente los notebooks base/profesional. Como aporte propio diseñé un módulo de **analítica post-sesión** que opera sobre el archivo MP4 generado por el cuaderno profesional: re-inferencia con `model.track(persist=True)` para obtener centroides y trayectorias persistentes. Los resultados se materializan en dos visualizaciones complementarias:
 
 - **Heatmap de zonas transitadas** — grilla de 64×36 con suavizado gaussiano (σ=1.5) sobre 1 104 centroides agregados.
 - **Dwell-time por identificador** — gráfico de barras con los 10 IDs de mayor permanencia en escena. Top: ID 48 con **82.49 s** sostenidos.
@@ -249,4 +249,4 @@ Ambas métricas son **estándar de la industria** en analítica de retail y movi
 Ingeniería Informática · Universidad Autónoma de Occidente · Cali, Colombia
 Curso: **Bases de Datos II** · Docente: Julián René Muñoz · 18 de abril de 2026
 
-> Este repositorio hace parte de mi portafolio académico — lo concibo como una investigación sobre el potencial de los modelos de detección en tiempo real aplicados a casos de uso de bases de datos y analítica.
+> Este repositorio hace parte de mi portafolio académico, como investigación sobre el potencial de los modelos de detección en tiempo real aplicados a casos de uso de bases de datos y analítica.
