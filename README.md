@@ -12,7 +12,7 @@
 
 ![Sistema profesional en ejecución](docs/img/06_sistema_profesional.png)
 
-## 📌 Alcance del proyecto
+##  Alcance del proyecto
 
 Repositorio dedicado a explorar el estado-del-arte en **detección de objetos en tiempo real**. La combinación de herramientas abiertas — **YOLOv8** de Ultralytics, el tracker **ByteTrack** y **OpenCV** — habilita capacidades antes reservadas a soluciones comerciales: identificación de personas en flujo de cámara, asignación de identidad persistente entre frames, conteo automatizado por geometría virtual y construcción de mapas de comportamiento espacial — sobre hardware de consumo, sin GPU dedicada y con un peso de modelo de apenas 6 MB.
 
@@ -46,7 +46,7 @@ Trabajo realizado en el marco del curso **Bases de Datos II** de la **Universida
 
 ---
 
-## 🎯 Resultados experimentales
+## Resultados experimentales
 
 Sesión real de 2 416 frames (~2 min) ejecutada en MacBook Air con chip Apple M5.
 
@@ -96,7 +96,7 @@ Sesión real de 2 416 frames (~2 min) ejecutada en MacBook Air con chip Apple M5
 
 ---
 
-## 🧠 Arquitectura técnica
+##  Arquitectura técnica
 
 ```
                 ┌─────────────────────────────┐
@@ -129,7 +129,7 @@ Sesión real de 2 416 frames (~2 min) ejecutada en MacBook Air con chip Apple M5
 
 ---
 
-## 📂 Estructura del repositorio
+##  Estructura del repositorio
 
 ```
 .
@@ -221,7 +221,7 @@ Ambas métricas son **estándar de la industria** en analítica de retail y movi
 
 ---
 
-## 🦋 Conexión con el proyecto SICTL
+##  Conexión con el proyecto SICTL
 
 | Concepto en este lab | Equivalente en SICTL |
 |---|---|
@@ -233,7 +233,7 @@ Ambas métricas son **estándar de la industria** en analítica de retail y movi
 
 ---
 
-## 📚 Referencias
+##  Referencias
 
 - Jocher, G., Chaurasia, A., & Qiu, J. (2023). [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics).
 - Redmon, J., Divvala, S., Girshick, R., & Farhadi, A. (2016). *You Only Look Once: Unified, Real-Time Object Detection*. CVPR.
@@ -243,7 +243,7 @@ Ambas métricas son **estándar de la industria** en analítica de retail y movi
 
 ---
 
-## 👤 Autor
+##  Autor
 
 **Joan Mateo Cardona**
 Ingeniería Informática · Universidad Autónoma de Occidente · Cali, Colombia
